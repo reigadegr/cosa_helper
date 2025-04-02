@@ -1,0 +1,14 @@
+/target
+/output
+**/__pycache__
+**/*.bak
+**/*.pyc
+Cargo.lock
+*.zip
+src/*.sh
+**/*.txt
+.idea
+*patch
+**/*.lua
+*.db
+db*
