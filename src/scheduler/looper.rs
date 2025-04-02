@@ -87,6 +87,7 @@ impl Looper {
         }
     }
 }
+
 fn init_pkg() {
     for i in &PROFILE.policy {
         // if self.global_package == i.package_name {

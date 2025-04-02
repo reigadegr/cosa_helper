@@ -28,7 +28,7 @@ mimalloc = { version = "0.1.43", features = [
 ] }
 minstant = "0.1.7"
 once_cell = { version = "1.20.3", default-features = false }
-rusqlite ={ version = "0.34.0", features = ["bundled"] }
+rusqlite = { version = "0.34.0", features = ["bundled"] }
 serde = { version = "1.0.218", default-features = false, features = ["derive"] }
 serde_json = "1.0.140"
 stringzilla = "3.12.0"
