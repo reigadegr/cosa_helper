@@ -9,17 +9,6 @@ wait_until_login() {
     until [ -d /sdcard/Android ]; do sleep 1; done
 }
 
-lock_val() {
-    find "$2" -type f | while read -r file; do
-        file="$(realpath "$file")"
-        umount "$file"
-        chown root:root "$file"
-        chmod 0644 "$file"
-        echo "$1" >"$file"
-        chmod 0444 "$file"
-    done
-}
-
 if [ "$(getprop sys.boot_completed)" != "1" ]; then
     wait_until_login
     if [ ! -L $MODDIR/cosa_apps.toml ]; then
@@ -30,4 +19,4 @@ fi
 
 killall -15 cosa_helper; rm $LOG
 chmod +x ${0%/*}/cosa_helper
-RUST_BACKTRACE=1 nohup $MODDIR/cosa_helper/ >$LOG 2>&1 &
+RUST_BACKTRACE=1 nohup $MODDIR/cosa_helper >$LOG 2>&1 &

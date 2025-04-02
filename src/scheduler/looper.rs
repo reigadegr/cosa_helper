@@ -60,7 +60,7 @@ impl Looper {
 
             for i in &PROFILE.policy {
                 if self.global_package == i.package_name {
-                    info!("开始执行SQL\n");
+                    info!("开始为{0}执行SQL\n", self.global_package);
                     let pkg_cfg = PackageConfigBean {
                         cpu_config: i.cpu_config.clone(),
                         gpu_config: i.gpu_config.clone(),
@@ -76,6 +76,7 @@ impl Looper {
                     };
 
                     let rs = update_package_config(&pkg_cfg);
+                    info!("完毕");
                     self.wait_until_exit();
                     continue 'outer;
                 }
