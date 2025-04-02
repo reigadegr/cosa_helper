@@ -7,6 +7,4 @@ clear_crash() {
     rm -rf $(find ./target/aarch64-linux-android/debug -name "*ndk*")
 }
 
-python3 ./make.py build --debug --nightly || clear_crash
-
-
+python3 ./make.py build --debug --nightly

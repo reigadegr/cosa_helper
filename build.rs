@@ -4,6 +4,8 @@ use anyhow::Result;
 use vergen::{BuildBuilder, CargoBuilder, Emitter, RustcBuilder, SysinfoBuilder};
 
 fn main() -> Result<()> {
+    // println!("cargo:rustc-link-lib=sqlite3");
+    // println!("cargo:rustc-link-search=native=libs");
     vergen()?;
     Ok(())
 }

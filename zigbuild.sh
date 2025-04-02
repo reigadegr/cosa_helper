@@ -1,0 +1,1 @@
+cargo-zigbuild +nightly ndk -p 35 -t arm64-v8a zigbuild --target aarch64-linux-android -Z trim-paths  --
