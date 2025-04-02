@@ -1,7 +1,7 @@
-id=freezer_rs
-name=Freezer_rs
-version=v0.1.1
-versionCode=11
+id=cosa_helper
+name=Cosa_helper
+version=v0.1.0
+versionCode=10
 author=Nigger
-description=Automated freezer of the target apps.
-updateJson=https://github.com/reigadegr/freezer-rs/raw/main/module/update.json
+description=
+updateJson=https://github.com/reigadegr/cosa_helper/raw/main/module/update.json

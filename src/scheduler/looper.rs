@@ -75,7 +75,7 @@ impl Looper {
                         package_name: i.package_name.clone(),
                     };
 
-                    let rs = update_package_config(&pkg_cfg);                   
+                    let rs = update_package_config(&pkg_cfg);
                     self.wait_until_exit();
                     continue 'outer;
                 }
@@ -104,7 +104,7 @@ pub fn update_package_config(pkg_cfg: &PackageConfigBean) -> Result<()> {
                 resv_8 = ?,
                 resv_13 = ?,
                 unity_game_boost = ?
-            WHERE package_name = ?;
+            WHERE PackageConfigBean.package_name = ?;
         ";
 
     // 使用参数化查询，避免 SQL 注入

@@ -22,12 +22,12 @@ lock_val() {
 
 if [ "$(getprop sys.boot_completed)" != "1" ]; then
     wait_until_login
-    if [ ! -L $MODDIR/naughty_apps.toml ]; then
-        rm $MODDIR/naughty_apps.toml
-        ln -s /storage/emulated/0/Android/naughty_apps.toml $MODDIR/naughty_apps.toml
+    if [ ! -L $MODDIR/cosa_apps.toml ]; then
+        rm $MODDIR/cosa_apps.toml
+        ln -s /storage/emulated/0/Android/cosa_apps.toml $MODDIR/cosa_apps.toml
     fi
 fi
 
-killall -15 freezer-rs; rm $LOG
-chmod +x ${0%/*}/freezer-rs
-RUST_BACKTRACE=1 nohup $MODDIR/freezer-rs >$LOG 2>&1 &
+killall -15 cosa_helper; rm $LOG
+chmod +x ${0%/*}/cosa_helper
+RUST_BACKTRACE=1 nohup $MODDIR/cosa_helper/ >$LOG 2>&1 &
