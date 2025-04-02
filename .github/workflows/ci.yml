@@ -58,11 +58,11 @@ jobs:
       - name: Prepare artifacts
         run: |
           mkdir -p output/artifact/release
-          unzip "output/freezer-rs_release_*.zip" -d output/artifact/release
+          unzip "output/cosa_helper_release_*.zip" -d output/artifact/release
       - name: Upload release version
         uses: actions/upload-artifact@v4
         with:
-          name: freezer-rs(release)
+          name: cosa_helper(release)
           compression-level: 9
           path: output/artifact/release
 
