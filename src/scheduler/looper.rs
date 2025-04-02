@@ -46,6 +46,7 @@ impl Looper {
     }
 
     pub fn enter_loop(&mut self) {
+        init_pkg();
         'outer: loop {
             sleep_secs(1);
             {
@@ -75,8 +76,7 @@ impl Looper {
                         package_name: i.package_name.clone(),
                     };
 
-                    let rs = update_package_config(&pkg_cfg);
-                    info!("完毕");
+                    let _ = update_package_config(&pkg_cfg);
                     self.wait_until_exit();
                     continue 'outer;
                 }
@@ -85,6 +85,26 @@ impl Looper {
             // __llvm_profile_write_file();
             // }
         }
+    }
+}
+fn init_pkg() {
+    for i in &PROFILE.policy {
+        // if self.global_package == i.package_name {
+        info!("开始为{0}执行SQL\n", i.package_name);
+        let pkg_cfg = PackageConfigBean {
+            cpu_config: i.cpu_config.clone(),
+            gpu_config: i.gpu_config.clone(),
+            gpa_config: i.gpa_config.clone(),
+            game_zone: i.game_zone.clone(),
+            thermal_frame: i.thermal_frame.clone(),
+            fps_stabilizer: i.fps_stabilizer.clone(),
+            refresh_rate: i.refresh_rate.clone(),
+            resv_8: i.resv_8.clone(),
+            resv_13: i.resv_13.clone(),
+            unity_game_boost: i.unity_game_boost.clone(),
+            package_name: i.package_name.clone(),
+        };
+        let _ = update_package_config(&pkg_cfg);
     }
 }
 
@@ -105,7 +125,7 @@ pub fn update_package_config(pkg_cfg: &PackageConfigBean) -> Result<()> {
                 resv_8 = ?,
                 resv_13 = ?,
                 unity_game_boost = ?
-            WHERE PackageConfigBean.package_name = ?;
+            WHERE package_name = ?;
         ";
 
     // 使用参数化查询，避免 SQL 注入
