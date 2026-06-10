@@ -36,7 +36,7 @@ tklog = "0.3.0"
 
 [build-dependencies]
 anyhow = "1.0.95"
-vergen = { version = "9.0.4", features = ["build", "cargo", "rustc", "si"] }
+vergen = { version = "10.0.0", features = ["build", "cargo", "rustc", "si"] }
 
 [profile.dev]
 debug = 0
